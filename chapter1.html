@@ -3,20 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>章节 1</title>
+    <title>Chapter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
-        <h1>章节 1</h1>
+        <h1 id="chapterTitle">章节</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
     </header>
+    
     <main>
-        <embed src="assets/chapter1.pdf" width="600" height="400" type="application/pdf">
+        <embed id="chapterContent" src="" width="600" height="400" type="application/pdf">
     </main>
-    <!-- Home button -->
+    
     <footer>
         <a href="index.html" class="home-button">Home</a>
+        
+        <div class="navigation-buttons">
+            <a href="#" id="prevButton" class="nav-button prev">Previous</a>
+            <a href="#" id="nextButton" class="nav-button next">Next</a>
+        </div>
     </footer>
+    
+    <script>
+        fetch('chapters.json')
+            .then(response => response.json())
+            .then(data => {
+                const totalChapters = data.chapters.length;
+                const currentChapter = 1; // This should be set based on the current page
+
+                // Set the chapter title dynamically
+                document.getElementById('chapterTitle').textContent = `章节 ${currentChapter}`;
+
+                // Set the PDF source dynamically
+                document.getElementById('chapterContent').src = `assets/chapter${currentChapter}.pdf`;
+
+                // Set navigation links
+                const prevChapter = currentChapter > 1 ? `chapter${currentChapter - 1}.html` : 'index.html';
+                const nextChapter = currentChapter < totalChapters ? `chapter${currentChapter + 1}.html` : 'index.html';
+
+                document.getElementById('prevButton').href = prevChapter;
+                document.getElementById('nextButton').href = nextChapter;
+            });
+    </script>
+
+    <script src="pdfjs/pdf.js"></script>
     <script src="script.js"></script>
 </body>
 </html>

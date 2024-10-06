@@ -1,0 +1,7 @@
+{
+    "chapters": [
+        { "number": 1, "title": "章节 1", "file": "chapter1.html" },
+        { "number": 2, "title": "章节 2", "file": "chapter2.html" },
+        { "number": 3, "title": "章节 3", "file": "chapter3.html" }
+    ]
+}
