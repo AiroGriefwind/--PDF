@@ -11,12 +11,30 @@
         <h1>PDF 漫画展示平台</h1>
         <nav>
             <ul>
-                <li><a href="chapter1.html">章节 1</a></li>
-                <li><a href="chapter2.html">章节 2</a></li>
-                <li><a href="chapter3.html">章节 3</a></li>
-                <!-- 添加更多章节链接 -->
+                <li>
+                    <a href="chapter1.html">
+                        <canvas id="preview1"></canvas>
+                        <img src="assets/previews/chapter1.png" alt="chapter1.png">
+                        章节 1
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter2.html">
+                        <canvas id="preview2"></canvas>
+                        <img src="assets/previews/chapter2.png" alt="chapter2.png">
+                        章节 2
+                    </a>
+                </li>
+                <li>
+                    <a href="chapter3.html">
+                        <canvas id="preview3"></canvas>
+                        章节 3
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
+    <script src="pdfjs/build/generic/build/pdf.mjs"></script>
+    <script src="script.js"></script>
 </body>
 </html>
